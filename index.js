@@ -30,8 +30,17 @@ app.get("/",(req,res)=>{
 //     res.send("you sent a post request");
 // });
 
-app.get("/:username",(req,res)=>{
-    console.log(req.params);
-    let {username} = req.params;
-    res.send(`You are at page of ${username}`);
+// app.get("/:username",(req,res)=>{
+//     console.log(req.params);
+//     let {username} = req.params;
+//     res.send(`You are at page of ${username}`);
+// });
+
+app.get("/search",(req,res)=>{
+    console.log(req.query);
+    let {q}=req.query;
+    if(!q){
+        res.send("Nothing searched");
+    }
+    res.send(`You searched query : ${q}`);
 });
