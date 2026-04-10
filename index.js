@@ -18,14 +18,20 @@ app.listen(port , ()=>{
 // });
 
 app.get("/",(req,res)=>{
-    res.send("you contacted root path");
+    res.send("hello , I am root");
 });
 
-app.get("/apple",(req,res)=>{
-    res.send("you contacted apple path");
-});
+// app.get("/apple",(req,res)=>{
+//     res.send("you contacted apple path");
+// });
 
 
-app.post("/",(req,res)=>{
-    res.send("you sent a post request");
+// app.post("/",(req,res)=>{
+//     res.send("you sent a post request");
+// });
+
+app.get("/:username",(req,res)=>{
+    console.log(req.params);
+    let {username} = req.params;
+    res.send(`You are at page of ${username}`);
 });
